@@ -99,8 +99,6 @@ const App = {
   deposit: async function () {
     var spinner = this.showSpinner();
     const walletInstance = this.getWallet();
-    console.log(`${walletInstance} ??`)
-    console.log(`${walletInstance.address} ??`)
     if (walletInstance) {
       if (await this.callOwner() !== walletInstance.address) return; 
       else {
@@ -139,7 +137,6 @@ const App = {
 
   getWallet: function () {
     if (cav.klay.accounts.wallet.length) {
-      console.log(`${cav.klay.accounts.wallet} ???!!!`)
       return cav.klay.accounts.wallet[0];
     }
   },
@@ -211,9 +208,7 @@ const App = {
     var spinner = this.showSpinner();
     const walletInstance = this.getWallet();
 
-    if (!walletInstance) return;  
-    console.log(`${walletInstance} @@@`)
-    console.log(`${walletInstance.address} @@@!!!!!!!1212`)
+    if (!walletInstance) return;
     agContract.methods.transfer(cav.utils.toPeb("0.1", "KLAY")).send({
       from: walletInstance.address,
       gas: '250000'

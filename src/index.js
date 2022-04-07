@@ -128,7 +128,8 @@ const App = {
   },
 
   callOwner: async function () {
-    return await agContract.methods.owner().call();
+    let owner = await agContract.methods.owner().call();
+    return owner.toLowerCase();
   },
 
   callContractBalance: async function () {
